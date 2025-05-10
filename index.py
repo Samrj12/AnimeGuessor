@@ -19,7 +19,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Load the anime knowledge base from a .txt file
 @st.cache_data
 def load_anime_kb(file_path="anime_kb.txt"):
     with open(file_path, "r", encoding="utf-8") as f:
@@ -27,7 +26,6 @@ def load_anime_kb(file_path="anime_kb.txt"):
 
 anime_kb = load_anime_kb()
 
-# Initialize session state
 if "chat" not in st.session_state:
     model = genai.GenerativeModel("models/gemini-1.5-pro")
     st.session_state.chat = model.start_chat(history=[])
@@ -38,7 +36,6 @@ if "qa_history" not in st.session_state:
 if "current_question" not in st.session_state:
     st.session_state.current_question = ""
 
-#Style
 st.markdown("""
     <style>
         .center-button {
@@ -49,7 +46,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
-# 1. Generate question or guess
+# Start guessing
 if st.session_state.current_question == "":
     history = "\n".join([f"Q: {q}\nA: {a}" for q, a in st.session_state.qa_history])
     guess_check_prompt = f"""
@@ -158,7 +155,6 @@ if st.session_state.current_question:
             st.rerun()
 
 
-# Show chat history
 if st.session_state.qa_history:
     st.subheader("🕹️ Question History")
     for q, a in st.session_state.qa_history:
