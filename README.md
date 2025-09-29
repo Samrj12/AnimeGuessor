@@ -1,6 +1,6 @@
 # Anime Guesser
 
-A fun and interactive **anime guessing game** powered by **LLMs (Gemini)** and a curated anime knowledge base. You think of an anime, and the AI will try to guess it by asking strategic yes/no questions.
+A fun and interactive **anime guessing game** powered by **Gemini** and a curated anime knowledge base. You think of an anime, and the AI will try to guess it by asking strategic yes/no questions.
 
 Play now: [https://animeguesser.streamlit.app](https://animeguesser.streamlit.app)
 
